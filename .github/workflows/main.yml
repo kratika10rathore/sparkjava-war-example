@@ -19,3 +19,5 @@ jobs:
           java-version: 1.8
       - name: Generate the package
         run: mvn -B package --file pom.xml
+      - name: Deploy to tomcat
+        run: curl -v -u admin:admin -T /home/runner/work/sparkjava-war-example/sparkjava-war-example/target/sparkjava-hello-world-1.0.war 'http://ec2-184-72-174-66.compute-1.amazonaws.com:8080//manager/text/deploy?path=/java_app'
